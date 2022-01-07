@@ -3,11 +3,11 @@ const morgan = require('morgan');
 const cors = require('cors');
 const apiRoutes = require('./routes/routes');
 const renderRoutes = require('./routes/renders');
-const { ErrorHandler } = require('./exceptions/errorHandler');
-const { HttpException } = require('./exceptions/httpException');
+const ErrorHandler = require('./exceptions/errorHandler');
+const HttpException = require('./exceptions/httpException');
 
 // Environment variables
-require('dotenv').config({ path: '../env/.env' });
+require('dotenv').config({ path: 'env/.env' });
 
 // instance of the app
 const app = express();
@@ -28,7 +28,8 @@ app.use('/views', renderRoutes);
 app.all('*', (req, res, next) => {
   next(
     new HttpException(
-      `no se encuentra la ruta ${req.originalUrl} en el servidor`
+      `no se encuentra la ruta ${req.originalUrl} en el servidor`,
+      404
     )
   );
 });

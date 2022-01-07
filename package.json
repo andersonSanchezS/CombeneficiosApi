@@ -4,7 +4,8 @@
   "description": "api de la aplicacion web de combeneficios",
   "main": "./src/app.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "dev": "node ./src/app.js"
   },
   "repository": {
     "type": "git",
@@ -13,7 +14,7 @@
   "keywords": [
     "combeneficios"
   ],
-  "author": "Anderson sanchez",
+  "author": "Anderson Sanchez",
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/andersonSanchezS/CombeneficiosApi/issues"
