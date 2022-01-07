@@ -1,9 +1,8 @@
 const { Router } = require('express');
+const authRoutes = require('../api/auth/auth.routes');
 
 const router = Router();
 
-router.get('/', (request, response) => {
-  response.send('prueba');
-});
+router.use('/auth', authRoutes);
 
 module.exports = router;

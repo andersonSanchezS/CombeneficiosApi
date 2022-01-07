@@ -5,6 +5,7 @@ const apiRoutes = require('./routes/routes');
 const renderRoutes = require('./routes/renders');
 const ErrorHandler = require('./exceptions/errorHandler');
 const HttpException = require('./exceptions/httpException');
+const path = require('path');
 
 // Environment variables
 require('dotenv').config({ path: 'env/.env' });
@@ -15,15 +16,20 @@ const app = express();
 // to handle the cors
 app.use(cors());
 // To recognize the incoming request object as a json object
-app.use(express.json({ limit: '50mb' }));
+app.use(express.json({ limit: '10mb' }));
 // To recognize the incoming Request Object as strings or arrays.
 app.use(express.urlencoded({ extended: true }));
 // Get the logs
 app.use(morgan('dev'));
+// Views engine
+app.set('views', path.join(__dirname, '/views'));
+app.set('view engine', 'ejs');
+// route for the multer's file uploads
+app.use('/public', express.static(path.join(__dirname, '../public')));
 // Api routes
 app.use('/api', apiRoutes);
 // Views routes
-app.use('/views', renderRoutes);
+app.use('/', renderRoutes);
 // To handle the wrong routes
 app.all('*', (req, res, next) => {
   next(
