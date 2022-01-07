@@ -1,4 +1,24 @@
 {
+  "name": "combeneficios",
+  "version": "1.0.0",
+  "description": "api de la aplicacion web de combeneficios",
+  "main": "./src/app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andersonSanchezS/CombeneficiosApi.git"
+  },
+  "keywords": [
+    "combeneficios"
+  ],
+  "author": "Anderson sanchez",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/andersonSanchezS/CombeneficiosApi/issues"
+  },
+  "homepage": "https://github.com/andersonSanchezS/CombeneficiosApi#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "crypto-js": "^4.1.1",
